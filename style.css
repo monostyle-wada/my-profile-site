@@ -194,6 +194,69 @@ a:hover {
     transition: transform 0.15s ease, box-shadow 0.15s ease; /* 変化をなめらかに */
 }
 
+/* Worksページ */
+
+.work-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 650px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.work-card h2 {
+    margin-top: 0; /* 飢えの余白を消してカード上部をすっきりさせる */
+    margin-bottom: 8px; /* タイトルと本文の間に少し余白を作る */
+}
+
+.work-card p {
+    margin: 0 0 8px;
+}
+
+.work-meta {
+    font-size: 0.9rem; /* 補足情報っぽく少し小さめにする */
+    color: #777; /* 文字色も少し薄くする */
+}
+
+/* Contactページ */
+.contact-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 650px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    border: 1px solid #eee;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    gap: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-form btn {
+    width: 100%;
+    justify-content: center;
+}
+
 @media (max-width: 600px) { /*画面幅が600px以下の時だけ適用*/
     body {
         margin: 16px; /* スマホでは余白40pxだと狭くなるので小さくする */
