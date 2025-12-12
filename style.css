@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box; /* width/heightにpaddingとborderも含める→はみ出しが起きにくい */
+}
+
+/* ページ全体（body）にかかる基本スタイル */
+body {
+    font-family: sans-serif;        /* 文字のフォント（ここでは汎用のサンセリフ） */
+    line-height: 1.6;               /* 行間。数字が大きいほど行間が広くなって読みやすい */
+    margin: 40px;                   /* 画面の端から全体を40px内側に寄せる（余白） */
+    background-color: #f5f5f5;      /* 背景色を薄いグレーにする */
+    color: #444;
+}
+
+.container {
+    max-width: 900px; /* PCで横に広がりすぎないよう最大幅を決める */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 12px; /* 端にくっつかないための左右の安全余白 */
+}
+
+/* h1（いちばん大きい見出し）のスタイル */
+h1 {
+    color: #333;                    /* 文字色（真っ黒より少し薄くして目が疲れにくい） */
+    text-align: center;             /* 文字を中央揃えにする */
+}
+
+/* h2（中見出し）のスタイル */
+h2 {
+    color: #555;                    /* 文字色（h1より少し薄いグレー） */
+    border-bottom: 2px solid #ddd;  /* 下に2pxの線（区切り線）を引く */
+    padding-bottom: 5px;            /* 線と文字の間に余白を作る（下側の内側余白） */
+    margin-top: 28px; /* 見出しの上に余白を追加してつまりを防ぐ */
+}
+
+/* リスト項目（li）同士の間隔 */
+ul li {
+    margin: 5px 0;                  /* 上下に5pxの余白、左右は0 */
+}
+
+/* リンク（a）の基本見た目 */
+a {
+    color: #0099cc;                 /* リンクの文字色 */
+    text-decoration: none;          /* 下線を消す */
+}
+
+/* リンクにマウスを乗せた時（ホバー）の見た目 */
+a:hover {
+    text-decoration: underline;     /* ホバー時だけ下線を表示 */
+}
+
+/* プロフィールカード（自己紹介カード全体） */
+.profile-card {
+    background: linear-gradient(135deg, #ffffff, #fff7fb); /* 背景をグラデーションにする（角度135deg、白→薄ピンク） */
+
+    padding: 20px 24px;            /* 内側余白（上下20px、左右24px） */
+    margin: 30px auto;             /* 上下30pxの外側余白、左右はautoで中央寄せ */
+    max-width: 650px;              /* 横幅の最大値（画面が広くても650px以上広がらない） */
+    border-radius: 16px;           /* 角を丸くする */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 影：横0 / 縦4px / ぼかし12px / 薄い黒 */
+
+    border: 1px solid #ffe0f0;     /* 薄いピンクの枠線 */
+
+    display: flex;                 /* 中身（画像とテキスト）を横並びにする */
+    align-items: center;           /* 縦方向の位置を中央に揃える */
+    gap: 20px;                     /* 要素同士（画像とテキスト）の間隔を20px空ける */
+}
+
+/* プロフィール画像 */
+.profile-img {
+    width: 120px;                  /* 画像の横幅を120pxに固定 */
+    height: 120px;                 /* 画像の高さを120pxに固定 */
+    border-radius: 50%;            /* 円形にする（正方形×50%で丸になる） */
+    object-fit: cover;             /* 枠に合わせてトリミングしつつ、比率を保って表示 */
+    flex-shrink: 0;                /* flexで横並びの時に画像が潰れて縮まないようにする */
+
+    border: 3px solid #fff;        /* 画像の周りに白いフチを付ける */
+    box-shadow: 0 0 0 3px #ffc6e0; /* 外側にさらにピンクの輪っかを作る（0 0 0 3px） */
+}
+
+/* プロフィールテキスト内のh2（余白調整） */
+.profile-text h2 {
+    margin-top: 0;                 /* 上の余白をなくす（カード内で詰めるため） */
+    margin-bottom: 8px;            /* 下に少し余白を入れて本文と離す */
+}
+
+/* プロフィールテキスト内のp（余白調整） */
+.profile-text p {
+    margin: 0; /* 余白をゼロにしてスッキリさせる */
+}
+
+/* 「好きなこと」カード全体 */
+.hobby-card {
+    background-color: #fff;        /* 背景を白にする */
+    padding: 20px;                 /* 内側余白 */
+    margin: 30px auto;             /* 上下30px、左右は中央寄せ */
+    max-width: 650px;              /* 最大幅 */
+    border-radius: 12px;           /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.07); /* ふんわり影 */
+    border: 1px solid #eee;        /* 薄い枠線 */
+}
+
+/* ボタンを並べる場所（リンクのp）をレイアウト用にする */
+.hobby-card p {
+    display: flex;    /* ボタンを横並びにできる */
+    flex-wrap: wrap;  /* 入りきらなければ折り返す → はみ出し防止 */
+    gap: 10px;        /* ボタン間の間隔（marginより管理しやすい） */
+    margin: 0;        /* pのデフォルト余白を消してズレ防止 */
+}
+
+/* hobby-card の中の ul の左余白（箇条書きのインデント） */
+.hobby-card ul {
+    padding-left: 20px;            /* 左に20px余白をつけて読みやすく */
+}
+
+/* hobby-card の中の li（各項目） */
+.hobby-card li {
+    margin: 8px 0;                 /* 上下の間隔 */
+    padding: 6px 10px;             /* li内の余白 */
+    background-color: #ffeef6;     /* 薄いピンク背景 */
+    border-radius: 6px;            /* 角丸 */
+    border-left: 4px solid #ff8ac1;/* 左にアクセントのライン */
+}
+
+.hobby-card p .btn {
+    flex: 1; /* 横並びの時、2つのボタンの幅を同じ比率にする */
+    text-align :center; /* ボタンのアイコンを中央寄せ */
+    min-width: 180px; /* 画面が狭いときは折り返しやすくするための最低幅 */
+}
+
+/* ボタン風リンク */
+.btn {
+    display: inline-flex; /* アイコンを中央に置きやすくする */
+    align-items: center; /* 縦位置を中央揃え */
+    justify-content: center; /* 横位置も中央揃え */
+    padding: 10px 16px; /* ボタンの内側余白 */
+    border-radius: 999px; /* カプセル型 */
+    background-color: #ff4b8b; /* 背景色 */
+    color: white; /* アイコンの色（Font Awesomeは文字扱いなのでこれで色が変わる） */
+    text-decoration: none; /* 下線を消す */
+    font-weight: bold; /* （今回は文字がないなら無くてもOK） */
+    box-shadow: 0 6px 14px rgba(255, 75, 139, 0.25); /* 影 */
+    transition: transform 0.15s ease, opacity 0.15s ease; /* ホバーを滑らかに */
+    white-space: nowrap; /* 改行させない（念のため） */
+}
+
+/* ボタンにマウスを乗せた時 */
+.btn:hover {
+    transform: translateY(-2px);   /* 2px上に移動して「浮く」感じ */
+    opacity: 0.9;                  /* 少しだけ透明にして変化を出す */
+}
+
+.btn i {
+    font-size: 1.3rem; /* アイコンを見やすい大きさにする */
+    line-height: 1; /* アイコンの上下のずれを減らす */
+}
+
+.link-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 650px; /* 他のカードと揃える(必要なら720/900に調整可能 */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    border: 1px solid #eee;
+}
+
+.link-card p {
+    display: flex; /* ボタンを並べる */
+    gap: 10px; /* ボタン間の間隔 */
+    margin: 0; /* pのデフォルト余白を消す */
+}
+
+.link-card .btn {
+    flex: 1; /* 2つのボタン幅をな時にする */
+    padding: 12px 0; /* アイコンだけでもボタンらしい高さを作る */
+    justify-content: center; /* 中身を中央へ */
+}
+
+.link-card .btn i {
+    font-size: 1.4rem; /* アイコンを少し大きくして存在感を出す */
+    line-height: 1; /* 余計な上下ずれを減らす */
+}
+
+/* カードのhover演出（統一感がでる） */
+.profile-card:hover,
+.hobby-card:hover,
+.link-card:hover {
+    transform: translateY(-2px); /* 少し浮かせる */
+}
+
+/* hoverをなめらかにする(カード側にもtransitionを付ける) */
+.profile-card,
+.hobby-card,
+.link-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease; /* 変化をなめらかに */
+}
+
+@media (max-width: 600px) { /*画面幅が600px以下の時だけ適用*/
+    body {
+        margin: 16px; /* スマホでは余白40pxだと狭くなるので小さくする */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* タイトルを少し小さくして収まりをよくする */
+    }
+
+    .profile-card {
+        flex-direction: column; /* 横並び→縦並びにする */
+        align-items: center; /* 縦並びでも中央揃え */
+        text-align: center; /* テキストも中央揃え */
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hobby-card {
+        padding: 16px;
+    }
+
+    .hobby-card p {
+        flex-direction: column; /* ボタンを縦並びにする */
+        align-items: stretch;/* 縦並びでもボタン幅を揃える */
+    }
+
+    .hobby-card p .btn {
+        min-width: 120px; 
+    }
+
+    .btn {
+        /* width: 100%;
+        text-align: center;
+        margin-top: 10px; */
+    }
+
+    /* .btn + .btn {
+        margin-left: 0;
+    } */
+}
+
+@media (min-width: 601px) and (max-width: 900px) { /* タブレット幅の時だけ適用 */
+
+    body {
+        margin: 24px; /* スマホとPCの中間にする */
+    }
+
+    h1 {
+        font-size: 2rem; /* タイトルを少しだけ大きく戻す */
+    }
+
+    .profile-card {
+        max-width: 720px; /* タブレットでは少し広げて見やすくなる */
+        padding: 22px 24px; /* 余白も少し増やす */
+        flex-direction: row; /* 横並びに戻す */
+        text-align: left; /* 文章は左の方が読みやすい */
+    }
+
+    .profile-img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .hobby-card {
+        max-width: 720px; /* カード幅をタブレット用に合わせる */
+        padding: 20px; /* 余白は標準に戻す */
+    }
+
+    .hobby-card p {
+        flex-direction: row; /* ボタンは横並び */
+        align-items: stretch; /* ボタンの高さを揃えやすくする */
+    }
+
+    .hobby-card p .btn {
+        min-width: 200px;
+    }
+
+    .link-card {
+        max-width: 720px;
+    }
+}
