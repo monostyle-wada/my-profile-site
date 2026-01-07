@@ -302,6 +302,16 @@
     }
 }
 
+/* Serviceページ */
+.service-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: var(--content-width);
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
 @media (max-width: 600px) { /*画面幅が600px以下の時だけ適用*/
     body {
         margin: 16px; /* スマホでは余白40pxだと狭くなるので小さくする */
